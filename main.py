@@ -1,7 +1,11 @@
+import traceback
+import asyncio
 import requests
-import json
+import telegram
+
 import os
 from dotenv import load_dotenv
+import fortnite_api
 
 # loads variables from .env file into the script's environment
 load_dotenv()
@@ -9,30 +13,34 @@ load_dotenv()
 # access environment variables
 telegram_token = os.getenv("TELEGRAM_TOKEN")
 group_chat_id = os.getenv("GROUP_CHAT_ID")
+fortnite_api_key = os.getenv("FORTNITE_API_KEY")
 
-# Fortnite API
-# FORTNITE_API_URL = 'https://fortnite-public-api.theapinetwork.com/prod09/upcoming/get'
-
-
-def send_message_to_telegram(message):
-    """Sends a message to the Telegram group chat"""
-    url = f'https://api.telegram.org/bot{telegram_token}/sendMessage'
-    data = {'chat_id': group_chat_id, 'text': message}
-    requests.post(url, json=data)
+bot = telegram.Bot(token=telegram_token)
+api = fortnite_api.FortniteAPI(api_key=fortnite_api_key, run_async=True)
 
 
-def check_fortnite_releases():
-    """Checks for new Fortnite releases"""
-    response = requests.get(FORTNITE_API_URL)
-    releases = response.json()['releases']
-    if releases:
-        message = 'New Fortnite release detected: ' + \
-            releases[0]['name'] + ' ' + releases[0]['date']
-        send_message_to_telegram(message)
-    else:
-        print("No releases found")
+async def check_fortnite_news():
+    type = fortnite_api.NewsType('br')
+    lang = fortnite_api.GameLanguage('fr')
+    news = await api.news.fetch_by_type(language=lang, news_type=type)
+    for update in news.motds:
+        content = " ```ℹ Nouveauté``` \n"
+        content += "_" + update.title + "_\n\n"
+        content += update.body + "\n\n"
+        content += "[img]("+update.image_url+")"
+        await bot.send_message(chat_id=group_chat_id, text=content, parse_mode='Markdown')
 
+
+async def main():
+    await check_fortnite_news()
 
 if __name__ == '__main__':
-    # check_fortnite_releases()
-    send_message_to_telegram("Hello, world")
+    try:
+        asyncio.run(main())
+    except Exception as e:
+        print("An error occured : ")
+        print(e)
+        print(traceback.format_exc())
+        # print(e)
+    except:
+        print("An unexpected error occured")
