@@ -2,8 +2,7 @@
 
 import logging
 import traceback
-from telegram import Update, Bot
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, Job, JobQueue
+from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, CallbackQueryHandler, Job, JobQueue
 import handlers.errorHandler
 import handlers.helpHandler
 import handlers.configHandler
@@ -24,25 +23,28 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
 async def scheduled(context: ContextTypes.DEFAULT_TYPE):
-    #print(context.job)
     await context.bot.send_message(chat_id=context.job.chat_id, text="5s")
 
 if __name__ == '__main__':
     try:
         application = ApplicationBuilder().token(telegram_token).build()
         job_queue = application.job_queue
-        #job = Job(scheduled, interval=5.0)
-        #job_queue.put(job, next_t=0.0)
-        #job_minute = job_queue.run_repeating(scheduled, interval=5, first=0, chat_id=group_chat_id)
+        # job = Job(scheduled, interval=5.0)
+        # job_queue.put(job, next_t=0.0)
+        # job_minute = job_queue.run_repeating(scheduled, interval=5, first=0, chat_id=group_chat_id)
 
-        
         application.add_error_handler(handlers.errorHandler.error_handler)
         help_handler = CommandHandler('help', handlers.helpHandler.help)
-        config_handler = CommandHandler('config', handlers.configHandler.config)
+        config_handler = CommandHandler(
+            'config', handlers.configHandler.config)
+        application.add_handler(CallbackQueryHandler(
+            handlers.configHandler.handle_callback_query))
+
         application.add_handler(help_handler)
         application.add_handler(config_handler)
-        
+
         application.run_polling()
     except Exception as e:
         print("An error occured : ")
