@@ -2,12 +2,17 @@
 
 import logging
 import traceback
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, CallbackQueryHandler, Job, JobQueue
+from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, CallbackQueryHandler, MessageHandler, Job, JobQueue, filters
 import handlers.errorHandler
+import handlers.welcomeHandler
 import handlers.helpHandler
 import handlers.configHandler
 import os
 from dotenv import load_dotenv
+from firebase_admin import firestore
+from firebase_admin import credentials
+
+db = firestore.client()
 
 # loads variables from .env file into the script's environment
 load_dotenv()
@@ -42,6 +47,11 @@ if __name__ == '__main__':
         application.add_handler(CallbackQueryHandler(
             handlers.configHandler.handle_callback_query))
 
+        welcome_handler = MessageHandler(
+            filters.StatusUpdate.NEW_CHAT_MEMBERS, handlers.welcomeHandler.welcome)
+        application.add_handler(welcome_handler)
+
+        application.add_handler(help_handler)
         application.add_handler(help_handler)
         application.add_handler(config_handler)
 
