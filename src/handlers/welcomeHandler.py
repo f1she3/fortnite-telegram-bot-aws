@@ -1,7 +1,6 @@
-from telegram import Update, ChatMember, ChatMemberUpdated
+from telegram import Update
 from telegram.ext import ContextTypes
-from telegram.constants import ParseMode
-import handlers.helpHandler
+from handlers import helpHandler
 
 
 async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -10,7 +9,7 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
         msg = (
             f"Bienvenue @{member.username} !\n\n"
         )
-        help = handlers.helpHandler.get_help_msg(member)
+        help = helpHandler.get_help_msg(member)
         msg += help
         await context.bot.send_message(
             chat_id=update.effective_chat.id,

@@ -6,17 +6,26 @@ def get_help_msg(user):
     help = (
         f"Voici la liste des commandes disponibles @{user.username} :\n\n"
         f"ℹ  /help - Guide de démarrage\n\n"
-        f"🎮  /config <username> - Lier son compte Fortnite\n\n"
+        f"🎮  /link <username> - Relier son compte Fortnite\n\n"
         f"📊  /stats - Une fois le compte lié, affiche ses statistiques\n\n"
     )
 
     return help
 
 
-def get_help_msg_config(user):
+def get_help_msg_link(user):
     help = (
         f"❌ Nom du compte manquant @{user.username}\n\n"
-        f"Exemple: \"/config pseudo\""
+        f"Exemple: \"/link pseudo\""
+    )
+
+    return help
+
+
+def get_help_msg_stats(user):
+    help = (
+        f"❌ Ton compte Fortnite n'a pas encore été relié @{user.username}\n\n"
+        f"Exécute d'abord : \"/link pseudo\""
     )
 
     return help

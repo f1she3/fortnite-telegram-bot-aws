@@ -1,27 +1,23 @@
-from dotenv import load_dotenv
 import fortnite_api
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
-import handlers.helpHandler
-import os
 from telegram.constants import ParseMode
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+from handlers import helpHandler, constants
 
 cred = credentials.Certificate('../service-account.json')
 app = firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-load_dotenv()
 
-
-async def config(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    fortnite_api_key = os.getenv("FORTNITE_API_KEY")
-    api = fortnite_api.FortniteAPI(api_key=fortnite_api_key, run_async=True)
+async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    api = fortnite_api.FortniteAPI(
+        api_key=constants.FORTNITE_API_KEY, run_async=True)
     user = update.effective_user
     if len(context.args) == 0:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text=handlers.helpHandler.get_help_msg_config(user))
+        await context.bot.send_message(chat_id=update.effective_chat.id, text=helpHandler.get_help_msg_link(user))
     else:
         fortniteUsername = context.args[0]
         try:
@@ -52,9 +48,8 @@ async def handle_callback_query(update: Update, context: ContextTypes.DEFAULT_TY
     user = update.effective_user
     if data != 'cancel':
         fortniteUsername = data
-        fortnite_api_key = os.getenv("FORTNITE_API_KEY")
         api = fortnite_api.FortniteAPI(
-            api_key=fortnite_api_key, run_async=True)
+            api_key=constants.FORTNITE_API_KEY, run_async=True)
         # Get the player's stats
         stats = await api.stats.fetch_by_name(fortniteUsername)
         # Check if tg user is in db
