@@ -1,7 +1,6 @@
 import fortnite_api
 from telegram.ext import ContextTypes
 from handlers import constants
-from firebase_admin import firestore
 
 
 async def news(context: ContextTypes.DEFAULT_TYPE):

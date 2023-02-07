@@ -1,3 +1,4 @@
+import logging
 import asyncio
 import json
 from telegram import Update
@@ -17,6 +18,11 @@ from handlers import (
     helpHandler
 )
 
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+
 application = Application.builder().token(constants.TELEGRAM_TOKEN).build()
 
 
@@ -34,8 +40,8 @@ async def main(event, context):
     application.add_handler(CommandHandler('stats', statsHandler.stats))
 
     # Other handlers
-    # application.add_handler(CallbackQueryHandler(
-    #    linkHandler.handle_callback_query))
+    application.add_handler(CallbackQueryHandler(
+        linkHandler.handle_callback_query))
     # application.add_handler(MessageHandler(
     #    filters.StatusUpdate.NEW_CHAT_MEMBERS, welcomeHandler.welcome))
 
@@ -51,55 +57,8 @@ async def main(event, context):
         }
 
     except Exception as e:
-        print(e)
+        logging.error('Error at %s', 'division', exc_info=e)
         return {
             'statusCode': 500,
             'body': 'Failure'
         }
-
-"""
-import json
-import asyncio
-from telegram import Bot
-from telegram.constants import ParseMode
-from handlers import constants
-from handlers import helpHandler
-
-
-def lambda_handler(event, context):
-    result = asyncio.run(async_handler(event, context))
-    return {
-        "statusCode": 200,
-        "body": result
-    }
-
-
-async def async_handler(event, context):
-    bot = Bot(token=constants.TELEGRAM_TOKEN)
-    async with bot:
-        try:
-            body = json.loads(event['body'])
-            message = body['message']
-            user = message['from']
-            current_id = int(message['chat'].get('id'))
-            if current_id == int(constants.GROUP_CHAT_ID):
-                text = message.get('text').split()
-                cmd = text[0]
-                if cmd == "/link" or cmd == '/link@ez_fortnite_bot':
-                    if len(text) == 1:
-                        help_msg = helpHandler.get_help_msg_link(user)
-                        await bot.send_message(chat_id=constants.GROUP_CHAT_ID, text=help_msg)
-                    else:
-                elif cmd == "/stats" or cmd == '/stats@ez_fortnite_bot':
-                    help_msg = helpHandler.get_help_msg_stats(user)
-                    await bot.send_message(chat_id=constants.GROUP_CHAT_ID, text=help_msg)
-                else:
-                    help_msg = helpHandler.get_help_msg(user)
-                    await bot.send_message(chat_id=constants.GROUP_CHAT_ID, text=help_msg)
-                    # await bot.send_message(chat_id=constants.GROUP_CHAT_ID, text=help_msg, parse_mode=ParseMode.MARKDOWN)
-        except Exception as e:
-            print(e)
-
-    return 'ok'
-
-"""

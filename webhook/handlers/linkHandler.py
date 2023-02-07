@@ -6,14 +6,8 @@ from telegram import (
 )
 from telegram.ext import ContextTypes
 from telegram.constants import ParseMode
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
 from handlers import helpHandler, constants
-
-cred = credentials.Certificate('../service-account.json')
-app = firebase_admin.initialize_app(cred)
-db = firestore.client()
+import boto3
 
 
 async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -51,34 +45,42 @@ async def handle_callback_query(update: Update, context: ContextTypes.DEFAULT_TY
     await callback_query.answer()
     user = update.effective_user
     if data != 'cancel':
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table('fortnite-bot')
         fortniteUsername = data
         api = fortnite_api.FortniteAPI(
             api_key=constants.FORTNITE_API_KEY, run_async=True)
         # Get the player's stats
         stats = await api.stats.fetch_by_name(fortniteUsername)
         # Check if tg user is in db
-        query = db.collection('users').where('tg_id', '==', user.id)
-        docs = query.get()
-        doc_exists = False
-        for doc in docs:
-            doc_exists = True
-            doc_ref = doc.reference
-        # If it is link its fortnite account
-        if doc_exists:
-            doc_ref.update({
-                u'fortnite_name': fortniteUsername,
-                u'kills': stats.stats.all.overall.kills,
-                u'deaths': stats.stats.all.overall.deaths
-            })
-        # Else create a doc in db
-        else:
-            doc_ref = db.collection(u'users').document()
-            doc_ref.set({
-                u'tg_id': user.id,
-                u'fortnite_name': fortniteUsername,
-                u'kills': stats.stats.all.overall.kills,
-                u'deaths': stats.stats.all.overall.deaths
-            })
+        response = table.get_item(
+            Key={
+                'tg_id': user.id
+            }
+        )
+        try:
+            item = response['Item']
+            update_response = table.update_item(
+                Key={
+                    'tg_id': user.id
+                },
+                UpdateExpression='SET fortnite_username = :username, kills = :k, deaths = :d ',
+                ExpressionAttributeValues={
+                    ':username': fortniteUsername,
+                    ':k': stats.stats.all.overall.kills,
+                    ':d': stats.stats.all.overall.deaths
+                },
+                ReturnValues='UPDATED_NEW'
+            )
+        # Else create an item in table
+        except KeyError:
+            item = {
+                'tg_id': user.id,
+                'fortnite_username': fortniteUsername,
+                'kills': stats.stats.all.overall.kills,
+                'deaths': stats.stats.all.overall.deaths
+            }
+            data = table.put_item(Item=item)
         msg = (
             f"✅ *Configuration terminée* !\n\n"
             f"Bienvenue dans la section, soldat."

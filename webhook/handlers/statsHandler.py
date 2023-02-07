@@ -3,21 +3,25 @@ from telegram import Update
 from telegram.ext import ContextTypes
 from telegram.constants import ParseMode
 from handlers import helpHandler, constants
-from google.cloud import firestore
-from firebase_admin import firestore
+import boto3
 
 
 async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    db = firestore.client()
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('fortnite-bot')
     user = update.effective_user
-    query = db.collection('users').where('tg_id', '==', user.id)
-    docs = query.get()
-    if len(docs) > 0:
-        fortniteUsername = docs[0].to_dict()['fortnite_name']
+
+    try:
+        response = table.get_item(
+            Key={
+                'tg_id': user.id
+            }
+        )
+        item = response['Item']
+        fortniteUsername = item['fortnite_username']
         full_stats = await get_full_stats(fortniteUsername)
         await context.bot.send_message(chat_id=update.effective_chat.id, text=full_stats, parse_mode=ParseMode.MARKDOWN)
-
-    else:
+    except KeyError:
         help = helpHandler.get_help_msg_stats(user)
         await context.bot.send_message(chat_id=update.effective_chat.id, text=help)
 
