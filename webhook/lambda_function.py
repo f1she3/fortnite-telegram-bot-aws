@@ -13,9 +13,10 @@ from telegram.ext import (
 from handlers import (
     constants,
     errorHandler,
+    helpHandler,
+    welcomeHandler,
     linkHandler,
     statsHandler,
-    helpHandler
 )
 
 logging.basicConfig(
@@ -42,8 +43,8 @@ async def main(event, context):
     # Other handlers
     application.add_handler(CallbackQueryHandler(
         linkHandler.handle_callback_query))
-    # application.add_handler(MessageHandler(
-    #    filters.StatusUpdate.NEW_CHAT_MEMBERS, welcomeHandler.welcome))
+    application.add_handler(MessageHandler(
+        filters.StatusUpdate.NEW_CHAT_MEMBERS, welcomeHandler.welcome))
 
     try:
         await application.initialize()

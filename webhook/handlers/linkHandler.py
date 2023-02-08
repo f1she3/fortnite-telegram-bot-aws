@@ -5,12 +5,17 @@ from telegram import (
     InlineKeyboardMarkup,
 )
 from telegram.ext import ContextTypes
-from telegram.constants import ParseMode
-from handlers import helpHandler, constants
+from telegram.constants import ParseMode, ChatAction
+from handlers import (
+    helpHandler,
+    constants,
+    statsHandler
+)
 import boto3
 
 
 async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action=ChatAction.TYPING)
     api = fortnite_api.FortniteAPI(
         api_key=constants.FORTNITE_API_KEY, run_async=True)
     user = update.effective_user
@@ -19,24 +24,27 @@ async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         fortniteUsername = context.args[0]
         try:
-            stats = await api.stats.fetch_by_name(fortniteUsername)
-            await context.bot.send_message(chat_id=update.effective_chat.id, text=f'Configuration de {repr(fortniteUsername)}')
+            # stats = await api.stats.fetch_by_name(fortniteUsername)
+            await context.bot.send_message(chat_id=update.effective_chat.id, text=f'Configuration de {fortniteUsername}')
+            full_stats = await statsHandler.get_full_stats(fortniteUsername)
             msg = (
                 f"Quelques informations concernant ce compte :\n\n"
-                f"- Ratio : *{stats.stats.all.overall.kd}*\n"
-                f"- Parties jouées : {stats.stats.all.overall.matches}\n"
-                f"- Kills par partie : {stats.stats.all.overall.kills_per_match}\n"
-                f"- Temps de jeu : _{stats.stats.all.overall.minutes_played // 60}h et {stats.stats.all.overall.minutes_played % 60} min_\n"
-                f"- Score : {stats.stats.all.overall.score}\n\n"
-                f"*Lier ce compte fortnite ?*"
+            )
+            msg += full_stats
+            msg += (
+                f"\n<b>Lier ce compte fortnite ?</b>"
             )
             keyboard = [[InlineKeyboardButton("✅ Oui", callback_data=fortniteUsername),
                          InlineKeyboardButton("❌ Non", callback_data='cancel')]]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await context.bot.send_message(chat_id=update.effective_chat.id, text=msg, reply_markup=reply_markup, parse_mode=ParseMode.MARKDOWN)
+            await context.bot.send_message(chat_id=update.effective_chat.id, text=msg, reply_markup=reply_markup, parse_mode=ParseMode.HTML)
         except Exception as e:
             print(e)
-            await context.bot.send_message(chat_id=update.effective_chat.id, text=f'Erreur lors de la récupération des informations.\r\nVeuillez vérifier le nom d\'utilisateur et réessayer.')
+            errMsg = (
+                f"Erreur lors de la récupération des informations.\n"
+                f"Veuillez vérifier le nom d\'utilisateur et réessayer."
+            )
+            await context.bot.send_message(chat_id=update.effective_chat.id, text=errMsg)
 
 
 async def handle_callback_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -82,9 +90,9 @@ async def handle_callback_query(update: Update, context: ContextTypes.DEFAULT_TY
             }
             data = table.put_item(Item=item)
         msg = (
-            f"✅ *Configuration terminée* !\n\n"
-            f"Bienvenue dans la section, soldat."
+            f"✅ <b>Configuration terminée</b> !\n\n"
+            f"Bienvenue dans la section, soldat.\n"
         )
-        await callback_query.edit_message_text(text=msg, parse_mode=ParseMode.MARKDOWN)
+        await callback_query.edit_message_text(text=msg, parse_mode=ParseMode.HTML)
     elif data == 'cancel':
         await callback_query.edit_message_text(text=f"Configuration annulée")
