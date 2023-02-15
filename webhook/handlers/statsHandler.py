@@ -36,7 +36,7 @@ async def get_full_stats(fortniteUsername):
         api_key=constants.FORTNITE_API_KEY, run_async=True)
     data = await api.stats.fetch_by_name(fortniteUsername)
     msg = (
-        f"• Taux de victoire : <b>{data.stats.all.overall.win_rate}</b>\n\n"
+        f"• Taux de victoire : <b>{data.stats.all.overall.win_rate}%</b>\n\n"
         f"• Ratio (kills / morts) : <b>{data.stats.all.overall.kd}</b>\n"
         f"• Nombre total de kills : {data.stats.all.overall.kills}\n"
         f"• Kills par partie : {data.stats.all.overall.kills_per_match}\n\n"
