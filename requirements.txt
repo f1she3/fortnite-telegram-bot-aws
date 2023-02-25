@@ -111,7 +111,7 @@ Paste==3.5.0
 pexpect==4.8.0
 pickleshare==0.7.5
 pid==2.2.3
-Pillow==9.2.0
+Pillow==9.3.0
 pipenv==2022.5.2
 platformdirs==2.6.2
 ply==3.11
