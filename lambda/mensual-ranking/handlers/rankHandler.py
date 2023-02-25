@@ -58,24 +58,6 @@ def getPlayerSummary(dbItem, latest_stats):
     return player
 
 
-async def getRankingMsg():
-    ranking_emojis = [
-        "🥇",
-        "🥈",
-        "🥉",
-        "🐐"
-    ]
-    rankedPlayers = await getRanking()
-    msg = f"<code>Classement mensuel</code>\n\n"
-    for i in range(len(rankedPlayers)):
-        if i < len(ranking_emojis):
-            msg += f"{ranking_emojis[i]} {rankedPlayers[i]['name']} - ratio: {round(rankedPlayers[i]['ratio'], 2)}; kills: {rankedPlayers[i]['kills']}; parties: {rankedPlayers[i]['matches']}\n"
-        else:
-            msg += f"{rankedPlayers[i]['name']} - ratio: {round(rankedPlayers[i]['ratio'], 2)}; kills: {rankedPlayers[i]['kills']}; parties: {rankedPlayers[i]['matches']}\n"
-
-    return msg
-
-
 def updatePlayerStats(tgId, latestStats):
     newKillCount = latestStats.stats.all.overall.kills - \
         latestStats.stats.all.solo.kills
@@ -98,3 +80,25 @@ def updatePlayerStats(tgId, latestStats):
         },
         ReturnValues='UPDATED_NEW'
     )
+
+
+async def getRankingMsg():
+    ranking_emojis = [
+        "🥇",
+        "🥈",
+        "🥉",
+        "🐐"
+    ]
+    rankedPlayers = await getRanking()
+    msg = f"<code>Classement mensuel</code>\n\n"
+    for i in range(len(rankedPlayers)):
+        if i < len(ranking_emojis):
+            msg += f"{ranking_emojis[i]} {rankedPlayers[i]['name']}"
+            msg += f" - "
+            msg += f"ratio: {round(rankedPlayers[i]['ratio'], 2)}; kills: {rankedPlayers[i]['kills']}; parties: {rankedPlayers[i]['matches']}\n"
+        else:
+            msg += f"{rankedPlayers[i]['name']}"
+            msg += " - "
+            msg += f"ratio: {round(rankedPlayers[i]['ratio'], 2)}; kills: {rankedPlayers[i]['kills']}; parties: {rankedPlayers[i]['matches']}\n"
+
+    return msg

@@ -1,4 +1,3 @@
-import json
 import logging
 import asyncio
 from telegram import Bot
