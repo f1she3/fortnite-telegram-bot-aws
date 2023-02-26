@@ -17,6 +17,24 @@ Feel free to fork the project, adapt it to your needs and deploy your own versio
 * `lambda/` : The code of the lambda functions
 * `layers/python.zip` : the Lambda layer. A layer contains the dependencies required to execute your lamdba functions. [Check here](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-create) for more information about Lambda layers.
 
+For every Lambda function, you should place a `.env` file inside the corresponding folder :
+* `lambda/webhook/.env` :
+```
+TELEGRAM_TOKEN = "<TELEGRAM TOKEN>"
+GROUP_CHAT_ID = "<THE ID OF YOUR GROUP CHAT>"
+FORTNITE_API_KEY = "<CHECK HERE https://dash.fortnite-api.com/>"
+LAMBDA_WEBHOOK_ENDPOINT = "<API GATEWAY ENDPOINT (ex : https://example.execute-api.eu-west-3.amazonaws.com/default/webhook)>"
+LAMBDA_WEBHOOK_TOKEN = "<API GATEWAY TOKEN>"
+```
+* `lambda/mensual-ranking/.env` :
+```
+TELEGRAM_TOKEN = "<TELEGRAM TOKEN>"
+GROUP_CHAT_ID = "<THE ID OF YOUR GROUP CHAT>"
+FORTNITE_API_KEY = "<CHECK HERE https://dash.fortnite-api.com/>"
+NEWS_LANG="<LANG (ex : en)>"
+```
+* `lambda/fetch-fortnite-news/.env` : same as `lambda/mensual-ranking/.env` 
+
 ## Thanks
 * The awesome [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library
 * [Fortnite-API](https://fortnite-api.com/) for their service and their cool [python wrapper](https://github.com/Fortnite-API/py-wrapper)
