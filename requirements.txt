@@ -143,7 +143,7 @@ PyMySQL==1.0.2
 pyOpenSSL==21.0.0
 pyparsing==3.0.9
 pyparted==3.12.0
-PyQt5==5.15.6
+PyQt5==5.15.9
 PyQt5-sip==12.11.0
 PySocks==1.7.1
 python-augeas==1.1.0
