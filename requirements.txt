@@ -11,7 +11,7 @@ autocommand==2.2.2
 Automat==22.10.0
 Babel==2.10.3
 backcall==0.2.0
-Beaker==1.10.0
+Beaker==1.12.1
 beautifulsoup4==4.11.2
 blivet==3.5.0
 blivet-gui==2.4.0
