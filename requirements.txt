@@ -6,7 +6,7 @@ APScheduler==3.9.1.post1
 argcomplete==2.0.0
 asttokens==2.2.1
 async-timeout==4.0.2
-attrs==22.1.0
+attrs==22.2.0
 autocommand==2.2.2
 Automat==22.10.0
 Babel==2.10.3
