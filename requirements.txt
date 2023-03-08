@@ -104,7 +104,7 @@ odfpy==1.4.1
 olefile==0.46
 openpyxl==3.1.1
 packaging==23.0
-pandas==1.5.2
+pandas==1.5.3
 pandas-datareader==0.10.0
 parso==0.8.3
 Paste==3.5.0
