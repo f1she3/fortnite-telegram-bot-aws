@@ -38,7 +38,7 @@ defusedxml==0.7.1
 deluge==2.1.1
 distlib==0.3.6
 distro==1.7.0
-entrypoints==0.3
+entrypoints==0.4
 et-xmlfile==1.1.0
 executing==1.2.0
 fb-re2==1.0.7
