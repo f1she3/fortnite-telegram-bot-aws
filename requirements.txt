@@ -180,7 +180,7 @@ simpleline==1.9.0
 six==1.16.0
 sniffio==1.3.0
 sos==4.4
-soupsieve==2.3.2.post1
+soupsieve==2.4
 SQLAlchemy==2.0.5.post1
 stack-data==0.6.2
 systemd-python==235
