@@ -59,7 +59,7 @@ h11==0.14.0
 html5lib==1.1
 httpcore==0.16.3
 httpx==0.23.3
-humanize==3.13.1
+humanize==4.6.0
 hyperlink==21.0.0
 idna==3.3
 incremental==22.10.0
