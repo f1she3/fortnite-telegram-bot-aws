@@ -134,7 +134,7 @@ pycurl==7.45.2
 pydantic==1.10.5
 pyenchant==3.2.2
 pygame==2.2.0
-pygit2==1.7.1
+pygit2==1.11.1
 Pygments==2.14.0
 PyGObject==3.42.2
 pygpu==0.7.6
