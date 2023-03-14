@@ -148,7 +148,7 @@ PyQt5-sip==12.11.0
 PySocks==1.7.1
 python-augeas==1.1.0
 python-dateutil==2.8.2
-python-dotenv==0.21.1
+python-dotenv==1.0.0
 python-meh==0.50
 python-snappy==0.6.1
 python-telegram-bot==20.0
