@@ -169,7 +169,7 @@ requests-gssapi==1.2.3
 rfc3986==1.5.0
 rpm==4.18.0
 rpmautospec==0.3.2
-scikit-learn==1.1.2
+scikit-learn==1.2.2
 SciPy==1.10.1
 selinux==3.4
 sepolicy==3.4
