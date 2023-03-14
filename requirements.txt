@@ -44,7 +44,7 @@ executing==1.2.0
 fb-re2==1.0.7
 fedora-third-party==0.10
 file-magic==0.4.0
-filelock==3.7.1
+filelock==3.9.1
 fonttools==4.37.2
 fortnite-api==2.5.4
 fros==1.1
