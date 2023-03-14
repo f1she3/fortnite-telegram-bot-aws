@@ -127,7 +127,7 @@ pyarrow==11.0.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycairo==1.23.0
-pycparser==2.20
+pycparser==2.21
 pycrypto==2.6.1
 pycups==2.0.1
 pycurl==7.45.2
