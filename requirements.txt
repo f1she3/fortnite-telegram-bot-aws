@@ -131,7 +131,7 @@ pycparser==2.21
 pycrypto==2.6.1
 pycups==2.0.1
 pycurl==7.45.2
-pydantic==1.10.5
+pydantic==1.10.6
 pyenchant==3.2.2
 pygame==2.2.0
 pygit2==1.7.1
