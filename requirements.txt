@@ -15,7 +15,7 @@ Beaker==1.12.1
 beautifulsoup4==4.11.2
 blivet==3.7.0
 blivet-gui==2.4.0
-Bottleneck==1.3.2
+Bottleneck==1.3.7
 Brlapi==0.8.4
 Brotli==1.0.9
 certifi==2022.12.7
