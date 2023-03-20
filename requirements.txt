@@ -61,7 +61,7 @@ httpcore==0.16.3
 httpx==0.23.3
 humanize==4.6.0
 hyperlink==21.0.0
-idna==3.3
+idna==3.4
 incremental==22.10.0
 inflect==6.0.2
 ipykernel==6.21.3
