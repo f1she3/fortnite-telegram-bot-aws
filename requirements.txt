@@ -138,7 +138,7 @@ pygit2==1.11.1
 Pygments==2.14.0
 PyGObject==3.42.2
 pygpu==0.7.6
-pykickstart==3.45
+pykickstart==3.47
 PyMySQL==1.0.2
 pyOpenSSL==21.0.0
 pyparsing==3.0.9
