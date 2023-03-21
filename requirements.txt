@@ -197,7 +197,7 @@ typing_extensions==4.5.0
 tzdata==2022.7
 tzlocal==4.2
 urllib3==1.26.14
-virtualenv==20.15.1
+virtualenv==20.21.0
 virtualenv-clone==0.5.7
 wcwidth==0.2.6
 webencodings==0.5.1
