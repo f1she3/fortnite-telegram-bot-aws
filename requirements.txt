@@ -181,7 +181,7 @@ six==1.16.0
 sniffio==1.3.0
 sos==4.4
 soupsieve==2.4
-SQLAlchemy==2.0.5.post1
+SQLAlchemy==2.0.7
 stack-data==0.6.2
 systemd-python==235
 tables==3.7.0
