@@ -152,7 +152,7 @@ python-dotenv==1.0.0
 python-meh==0.50
 python-snappy==0.6.1
 python-telegram-bot==20.1
-python-utils==3.1.0
+python-utils==3.5.2
 pytz==2022.7.1
 pytz-deprecation-shim==0.1.0.post0
 pyudev==0.23.2
