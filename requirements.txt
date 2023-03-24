@@ -91,7 +91,7 @@ Mako==1.2.4
 MarkupSafe==2.1.1
 matplotlib==3.7.1
 matplotlib-inline==0.1.6
-mercurial==6.2.3
+mercurial==6.4
 more-itertools==9.1.0
 multidict==6.0.4
 munkres==1.1.4
