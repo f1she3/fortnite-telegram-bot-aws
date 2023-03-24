@@ -112,7 +112,7 @@ pexpect==4.8.0
 pickleshare==0.7.5
 pid==3.0.4
 Pillow==9.4.0
-pipenv==2022.5.2
+pipenv==2023.3.20
 platformdirs==3.1.0
 ply==3.11
 productmd==1.35
