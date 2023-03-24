@@ -136,7 +136,7 @@ pyenchant==3.2.2
 pygame==2.2.0
 pygit2==1.11.1
 Pygments==2.14.0
-PyGObject==3.42.2
+PyGObject==3.44.0
 pygpu==0.7.6
 pykickstart==3.47
 PyMySQL==1.0.2
