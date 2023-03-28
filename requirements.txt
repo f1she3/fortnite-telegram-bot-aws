@@ -107,7 +107,7 @@ packaging==23.0
 pandas==1.5.3
 pandas-datareader==0.10.0
 parso==0.8.3
-Paste==3.5.0
+Paste==3.5.2
 pexpect==4.8.0
 pickleshare==0.7.5
 pid==3.0.4
