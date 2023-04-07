@@ -88,7 +88,7 @@ libtorrent==2.0.8
 lxml==4.9.2
 lz4==4.3.2
 Mako==1.2.4
-MarkupSafe==2.1.1
+MarkupSafe==2.1.2
 matplotlib==3.7.1
 matplotlib-inline==0.1.6
 mercurial==6.4
