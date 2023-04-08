@@ -116,7 +116,7 @@ pipenv==2023.3.20
 platformdirs==3.1.0
 ply==3.11
 productmd==1.35
-progressbar2==3.53.2
+progressbar2==4.2.0
 prompt-toolkit==3.0.38
 psutil==5.9.4
 psycopg2==2.9.5
