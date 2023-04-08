@@ -112,4 +112,4 @@ async def handle_callback_query(update: Update, context: ContextTypes.DEFAULT_TY
         )
         await callback_query.edit_message_text(text=msg, parse_mode=ParseMode.HTML)
     elif data == 'cancel':
-        await callback_query.edit_message_text(text=f"Configuration annulée")
+        await callback_query.edit_message_text(text=f"❌ Configuration annulée")
