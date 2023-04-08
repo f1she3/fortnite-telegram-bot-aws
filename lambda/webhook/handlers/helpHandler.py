@@ -7,7 +7,7 @@ def get_help_msg(user):
     help = (
         f"Voici la liste des commandes disponibles <a href=\"tg://user?id={user.id}\">{user.first_name}</a> :\n\n"
         f"ℹ  /help - Afficher les commandes disponibles\n\n"
-        f"🎮  /link <username> - Relier son compte Fortnite\n\n"
+        f"🎮  /link \"username\" - Relier son compte Fortnite\n\n"
         f"📊  /stats - Afficher ses statistiques Fortnite\n\n"
     )
 
@@ -23,8 +23,8 @@ def get_help_msg_welcome(user):
         f"/help \n\n"
         f"🟢 Prêt ?\n"
         f"Alors commencons par relier ton compte Fortnite avec la commande suivante :\n"
-        f"/link <username> \n"
-        f"(où <username> est ton nom d'utilisateur Fortnite)\n\n"
+        f"/link \"username\" \n"
+        f"(où \"username\" est ton nom d'utilisateur Fortnite)\n\n"
         f"Par exemple : \n"
         f"/link MyFortniteUsername"
     )
