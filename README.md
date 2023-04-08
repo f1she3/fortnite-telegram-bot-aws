@@ -38,4 +38,4 @@ NEWS_LANG="<LANG (ex : en)>"
 ## Thanks
 * The awesome [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library
 * [Fortnite-API](https://fortnite-api.com/) for their service and their cool [python wrapper](https://github.com/Fortnite-API/py-wrapper)
-* [Knowledge Amplifier](https://www.youtube.com/@KnowledgeAmplifier1) (YouTube) for their [tutorial about AWS](https://www.youtube.com/watch?v=oYMgw4M4cD0)
+* [Knowledge Amplifier](https://www.youtube.com/@KnowledgeAmplifier1) for their [YouTube tutorial about AWS Lambda](https://www.youtube.com/watch?v=oYMgw4M4cD0)
