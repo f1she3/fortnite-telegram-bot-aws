@@ -20,12 +20,19 @@ async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
         api_key=constants.FORTNITE_API_KEY, run_async=True)
     user = update.effective_user
     if len(context.args) == 0:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text=helpHandler.get_help_msg_link(user))
+        await context.bot.send_message(
+            chat_id=update.effective_chat.id, 
+            text=helpHandler.get_help_msg_link(user),
+            parse_mode=ParseMode.HTML
+        )
     else:
         fortniteUsername = context.args[0]
         try:
             # stats = await api.stats.fetch_by_name(fortniteUsername)
-            await context.bot.send_message(chat_id=update.effective_chat.id, text=f'Configuration de {fortniteUsername}')
+            await context.bot.send_message(
+                chat_id=update.effective_chat.id, 
+                text=f'Configuration de {fortniteUsername}'
+            )
             full_stats = await statsHandler.get_full_stats(fortniteUsername)
             msg = (
                 f"Quelques informations concernant ce compte :\n\n"
@@ -37,7 +44,12 @@ async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
             keyboard = [[InlineKeyboardButton("✅ Oui", callback_data=fortniteUsername),
                          InlineKeyboardButton("❌ Non", callback_data='cancel')]]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await context.bot.send_message(chat_id=update.effective_chat.id, text=msg, reply_markup=reply_markup, parse_mode=ParseMode.HTML)
+            await context.bot.send_message(
+                chat_id=update.effective_chat.id, 
+                text=msg, 
+                reply_markup=reply_markup, 
+                parse_mode=ParseMode.HTML
+            )
         except Exception as e:
             print(e)
             errMsg = (

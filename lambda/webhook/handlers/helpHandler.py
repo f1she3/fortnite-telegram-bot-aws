@@ -1,10 +1,11 @@
 from telegram import Update
 from telegram.ext import ContextTypes
+from telegram.constants import ParseMode
 
 
 def get_help_msg(user):
     help = (
-        f"Voici la liste des commandes disponibles @{user.username} :\n\n"
+        f"Voici la liste des commandes disponibles <a href=\"tg://user?id={user.id}\">{user.first_name}</a> :\n\n"
         f"ℹ  /help - Afficher les commandes disponibles\n\n"
         f"🎮  /link <username> - Relier son compte Fortnite\n\n"
         f"📊  /stats - Afficher ses statistiques Fortnite\n\n"
@@ -15,7 +16,7 @@ def get_help_msg(user):
 
 def get_help_msg_welcome(user):
     help = (
-        f"🎉 Bienvenue @{user.username} !\n\n"
+        f"🎉 Bienvenue <a href=\"tg://user?id={user.id}\">{user.first_name}</a> !\n\n"
         f"Je suis un chatbot conçu pour animer ce groupe Fortnite 🤖\n"
         f"Lorsque tu veux interagir avec moi, écris simplement une commande dans le chat.\n\n"
         f"Par exemple, pour obtenir la liste des commandes disponibles :\n"
@@ -33,7 +34,7 @@ def get_help_msg_welcome(user):
 
 def get_help_msg_link(user):
     help = (
-        f"❌ Nom du compte manquant @{user.username}\n\n"
+        f"❌ Nom du compte manquant <a href=\"tg://user?id={user.id}\">{user.first_name}</a>\n\n"
         f"Exemple: \"/link pseudo\""
     )
 
@@ -42,7 +43,7 @@ def get_help_msg_link(user):
 
 def get_help_msg_stats(user):
     help = (
-        f"❌ Ton compte Fortnite n'a pas encore été relié @{user.username}\n\n"
+        f"❌ Ton compte Fortnite n'a pas encore été relié <a href=\"tg://user?id={user.id}\">{user.first_name}</a>\n\n"
         f"Exécute d'abord : \"/link pseudo\""
     )
 
@@ -51,4 +52,8 @@ def get_help_msg_stats(user):
 
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=get_help_msg(user))
+    await context.bot.send_message(
+        chat_id=update.effective_chat.id, 
+        text=get_help_msg(user),
+        parse_mode=ParseMode.HTML
+    )
