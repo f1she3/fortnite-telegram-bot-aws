@@ -53,7 +53,7 @@ def get_help_msg_stats(user):
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     await context.bot.send_message(
-        chat_id=update.effective_chat.id, 
+        chat_id=update.effective_chat.id,
         text=get_help_msg(user),
         parse_mode=ParseMode.HTML
     )

@@ -2,6 +2,7 @@ import fortnite_api
 from handlers import constants
 import boto3
 
+
 async def getLatestNews():
     # Fetch the id of old news in db
     dynamodb = boto3.resource('dynamodb', region_name="eu-west-3")

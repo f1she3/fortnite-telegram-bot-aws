@@ -26,14 +26,14 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         msg += full_stats
         await context.bot.send_message(
-            chat_id=update.effective_chat.id, 
-            text=msg, 
+            chat_id=update.effective_chat.id,
+            text=msg,
             parse_mode=ParseMode.HTML
         )
     except KeyError:
         help = helpHandler.get_help_msg_stats(user)
         await context.bot.send_message(
-            chat_id=update.effective_chat.id, 
+            chat_id=update.effective_chat.id,
             text=help,
             parse_mode=ParseMode.HTML
         )

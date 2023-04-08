@@ -21,7 +21,7 @@ async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     if len(context.args) == 0:
         await context.bot.send_message(
-            chat_id=update.effective_chat.id, 
+            chat_id=update.effective_chat.id,
             text=helpHandler.get_help_msg_link(user),
             parse_mode=ParseMode.HTML
         )
@@ -30,7 +30,7 @@ async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
         try:
             # stats = await api.stats.fetch_by_name(fortniteUsername)
             await context.bot.send_message(
-                chat_id=update.effective_chat.id, 
+                chat_id=update.effective_chat.id,
                 text=f'Configuration de {fortniteUsername}'
             )
             full_stats = await statsHandler.get_full_stats(fortniteUsername)
@@ -45,9 +45,9 @@ async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
                          InlineKeyboardButton("❌ Non", callback_data='cancel')]]
             reply_markup = InlineKeyboardMarkup(keyboard)
             await context.bot.send_message(
-                chat_id=update.effective_chat.id, 
-                text=msg, 
-                reply_markup=reply_markup, 
+                chat_id=update.effective_chat.id,
+                text=msg,
+                reply_markup=reply_markup,
                 parse_mode=ParseMode.HTML
             )
         except Exception as e:
