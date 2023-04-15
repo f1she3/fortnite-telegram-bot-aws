@@ -25,7 +25,5 @@ async def main(event, context):
         for content in latest_news:
             await bot.send_message(chat_id=constants.GROUP_CHAT_ID, text=content, parse_mode=ParseMode.HTML)
             continue
-"""
-if __name__ == '__main__':
-    lambda_handler("", "")
-"""
+# if __name__ == '__main__':
+#     lambda_handler("", "")
