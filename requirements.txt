@@ -27,7 +27,7 @@ grpcio==1.54.2
 h11==0.14.0
 h5py==3.8.0
 httpcore==0.17.1
-httpx==0.24.0
+httpx==0.24.1
 idna==3.4
 ipykernel==6.23.1
 ipython==8.13.2
