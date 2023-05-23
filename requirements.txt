@@ -26,7 +26,7 @@ google-pasta==0.2.0
 grpcio==1.55.0
 h11==0.14.0
 h5py==3.8.0
-httpcore==0.17.1
+httpcore==0.17.2
 httpx==0.24.1
 idna==3.4
 ipykernel==6.23.1
