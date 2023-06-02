@@ -30,7 +30,7 @@ httpcore==0.17.2
 httpx==0.24.1
 idna==3.4
 ipykernel==6.23.1
-ipython==8.13.2
+ipython==8.14.0
 jax==0.4.11
 jedi==0.18.2
 joblib==1.2.0
