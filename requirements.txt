@@ -29,7 +29,7 @@ h5py==3.10.0
 httpcore==1.0.2
 httpx==0.26.0
 idna==3.6
-ipykernel==6.29.1
+ipykernel==6.29.2
 ipython==8.21.0
 jax==0.4.23
 jedi==0.19.1
