@@ -5,7 +5,7 @@ astunparse==1.6.3
 autopep8==2.0.4
 backcall==0.2.0
 cachetools==5.3.3
-certifi==2023.11.17
+certifi==2024.2.2
 chardet==5.2.0
 charset-normalizer==3.3.2
 colorama==0.4.6
