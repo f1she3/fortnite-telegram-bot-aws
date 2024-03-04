@@ -64,7 +64,7 @@ pycodestyle==2.11.1
 Pygments==2.17.2
 pyparsing==3.1.1
 python-1inch==0.0.2
-python-dateutil==2.9.0
+python-dateutil==2.9.0.post0
 python-telegram-bot==20.8
 pytz==2024.1
 pywin32==306
