@@ -39,7 +39,7 @@ jupyter_core==5.7.2
 keras==3.0.5
 kiwisolver==1.4.5
 libclang==16.0.6
-Markdown==3.5.2
+Markdown==3.6
 MarkupSafe==2.1.5
 matplotlib==3.8.3
 matplotlib-inline==0.1.6
