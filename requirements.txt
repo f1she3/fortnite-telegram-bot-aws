@@ -70,7 +70,7 @@ pytz==2024.1
 pywin32==306
 pyzmq==25.1.2
 requests==2.31.0
-requests-oauthlib==1.4.0
+requests-oauthlib==2.0.0
 rfc3986==2.0.0
 rsa==4.9
 scikit-learn==1.4.1.post1
