@@ -17,7 +17,7 @@ decorator==5.1.1
 distlib==0.3.8
 executing==2.0.1
 filelock==3.13.2
-flatbuffers==24.3.7
+flatbuffers==24.3.25
 fonttools==4.50.0
 gast==0.5.4
 google-auth==2.29.0
