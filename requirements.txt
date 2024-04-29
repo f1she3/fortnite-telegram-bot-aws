@@ -36,7 +36,7 @@ jedi==0.19.1
 joblib==1.4.0
 jupyter_client==8.6.1
 jupyter_core==5.7.2
-keras==3.2.1
+keras==3.3.3
 kiwisolver==1.4.5
 libclang==18.1.1
 Markdown==3.6
