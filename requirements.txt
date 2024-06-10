@@ -54,7 +54,7 @@ pickleshare==0.7.5
 Pillow==10.3.0
 pipenv==2024.0.0
 platformdirs==4.2.2
-prompt-toolkit==3.0.46
+prompt-toolkit==3.0.47
 protobuf==5.27.1
 psutil==5.9.8
 pure-eval==0.2.2
