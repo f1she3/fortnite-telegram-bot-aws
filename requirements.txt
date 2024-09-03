@@ -37,7 +37,7 @@ joblib==1.4.2
 jupyter_client==8.6.2
 jupyter_core==5.7.2
 keras==3.5.0
-kiwisolver==1.4.5
+kiwisolver==1.4.6
 libclang==18.1.1
 Markdown==3.7
 MarkupSafe==2.1.5
