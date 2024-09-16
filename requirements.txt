@@ -55,7 +55,7 @@ Pillow==10.4.0
 pipenv==2024.0.2
 platformdirs==4.3.3
 prompt-toolkit==3.0.47
-protobuf==5.28.0
+protobuf==5.28.1
 psutil==6.0.0
 pure-eval==0.2.3
 pyasn1==0.6.1
