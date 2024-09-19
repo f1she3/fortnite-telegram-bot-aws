@@ -1,5 +1,5 @@
 absl-py==2.1.0
-anyio==4.4.0
+anyio==4.5.0
 asttokens==2.4.1
 astunparse==1.6.3
 autopep8==2.3.1
