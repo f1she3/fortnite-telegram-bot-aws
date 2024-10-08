@@ -40,7 +40,7 @@ keras==3.5.0
 kiwisolver==1.4.7
 libclang==18.1.1
 Markdown==3.7
-MarkupSafe==2.1.5
+MarkupSafe==3.0.0
 matplotlib==3.9.2
 matplotlib-inline==0.1.7
 nest-asyncio==1.6.0
