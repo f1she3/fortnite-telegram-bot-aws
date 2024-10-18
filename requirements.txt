@@ -56,7 +56,7 @@ pipenv==2024.1.0
 platformdirs==4.3.6
 prompt-toolkit==3.0.48
 protobuf==5.28.2
-psutil==6.0.0
+psutil==6.1.0
 pure-eval==0.2.3
 pyasn1==0.6.1
 pyasn1-modules==0.4.1
