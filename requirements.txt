@@ -18,7 +18,7 @@ distlib==0.3.9
 executing==2.1.0
 filelock==3.16.1
 flatbuffers==24.3.25
-fonttools==4.54.1
+fonttools==4.55.0
 gast==0.6.0
 google-auth==2.36.0
 google-auth-oauthlib==1.2.1
