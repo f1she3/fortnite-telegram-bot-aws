@@ -51,7 +51,7 @@ packaging==24.2
 pandas==2.2.3
 parso==0.8.4
 pickleshare==0.7.5
-Pillow==11.0.0
+Pillow==11.1.0
 pipenv==2024.4.0
 platformdirs==4.3.6
 prompt-toolkit==3.0.48
