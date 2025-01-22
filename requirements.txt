@@ -15,7 +15,7 @@ cycler==0.12.1
 debugpy==1.8.12
 decorator==5.1.1
 distlib==0.3.9
-executing==2.1.0
+executing==2.2.0
 filelock==3.16.1
 flatbuffers==24.12.23
 fonttools==4.55.4
