@@ -66,7 +66,7 @@ pyparsing==3.2.1
 python-1inch==0.0.2
 python-dateutil==2.9.0.post0
 python-telegram-bot==21.10
-pytz==2024.2
+pytz==2025.1
 pywin32==308
 pyzmq==26.2.0
 requests==2.32.3
