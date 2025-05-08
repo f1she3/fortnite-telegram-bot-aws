@@ -53,7 +53,7 @@ parso==0.8.4
 pickleshare==0.7.5
 Pillow==11.2.1
 pipenv==2025.0.2
-platformdirs==4.3.7
+platformdirs==4.3.8
 prompt-toolkit==3.0.51
 protobuf==6.30.2
 psutil==7.0.0
