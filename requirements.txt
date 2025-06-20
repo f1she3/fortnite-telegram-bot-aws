@@ -45,7 +45,7 @@ matplotlib==3.10.3
 matplotlib-inline==0.1.7
 nest-asyncio==1.6.0
 numpy==2.3.0
-oauthlib==3.3.0
+oauthlib==3.3.1
 opt-einsum==3.4.0
 packaging==25.0
 pandas==2.3.0
