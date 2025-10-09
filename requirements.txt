@@ -16,7 +16,7 @@ debugpy==1.8.16
 decorator==5.2.1
 distlib==0.4.0
 executing==2.2.1
-filelock==3.19.1
+filelock==3.20.0
 flatbuffers==25.9.23
 fonttools==4.60.1
 gast==0.6.0
