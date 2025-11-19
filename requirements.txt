@@ -31,7 +31,7 @@ httpx==0.28.1
 idna==3.11
 ipykernel==7.1.0
 ipython==9.7.0
-jax==0.8.0
+jax==0.8.1
 jedi==0.19.2
 joblib==1.5.2
 jupyter_client==8.6.3
