@@ -33,7 +33,7 @@ ipykernel==7.1.0
 ipython==9.8.0
 jax==0.8.1
 jedi==0.19.2
-joblib==1.5.2
+joblib==1.5.3
 jupyter_client==8.7.0
 jupyter_core==5.9.1
 keras==3.13.0
