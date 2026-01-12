@@ -44,7 +44,7 @@ MarkupSafe==3.0.3
 matplotlib==3.10.8
 matplotlib-inline==0.2.1
 nest-asyncio==1.6.0
-numpy==2.4.0
+numpy==2.4.1
 oauthlib==3.3.1
 opt-einsum==3.4.0
 packaging==25.0
