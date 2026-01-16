@@ -58,7 +58,7 @@ prompt-toolkit==3.0.52
 protobuf==6.33.4
 psutil==7.2.1
 pure-eval==0.2.3
-pyasn1==0.6.1
+pyasn1==0.6.2
 pyasn1-modules==0.4.2
 pycodestyle==2.14.0
 Pygments==2.19.2
