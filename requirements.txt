@@ -4,7 +4,7 @@ asttokens==3.0.1
 astunparse==1.6.3
 autopep8==2.3.2
 backcall==0.2.0
-cachetools==6.2.4
+cachetools==6.2.6
 certifi==2026.1.4
 chardet==5.2.0
 charset-normalizer==3.4.4
