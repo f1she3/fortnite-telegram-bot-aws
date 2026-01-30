@@ -1,4 +1,4 @@
-absl-py==2.3.1
+absl-py==2.4.0
 anyio==4.12.1
 asttokens==3.0.1
 astunparse==1.6.3
