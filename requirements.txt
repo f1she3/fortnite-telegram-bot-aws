@@ -48,7 +48,7 @@ numpy==2.4.2
 oauthlib==3.3.1
 opt-einsum==3.4.0
 packaging==26.0
-pandas==3.0.0
+pandas==3.0.1
 parso==0.8.6
 pickleshare==0.7.5
 Pillow==12.1.1
