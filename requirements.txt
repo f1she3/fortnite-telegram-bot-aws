@@ -6,7 +6,7 @@ autopep8==2.3.2
 backcall==0.2.0
 cachetools==7.0.5
 certifi==2026.2.25
-chardet==7.4.1
+chardet==7.4.2
 charset-normalizer==3.4.7
 colorama==0.4.6
 comm==0.2.3
