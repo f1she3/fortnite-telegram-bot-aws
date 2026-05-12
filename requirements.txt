@@ -49,7 +49,7 @@ oauthlib==3.3.1
 opt-einsum==3.4.0
 packaging==26.2
 pandas==3.0.3
-parso==0.8.6
+parso==0.8.7
 pickleshare==0.7.5
 Pillow==12.2.0
 pipenv==2026.6.1
