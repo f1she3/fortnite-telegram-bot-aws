@@ -52,7 +52,7 @@ pandas==3.0.3
 parso==0.8.7
 pickleshare==0.7.5
 Pillow==12.2.0
-pipenv==2026.6.1
+pipenv==2026.6.2
 platformdirs==4.10.0
 prompt-toolkit==3.0.52
 protobuf==7.35.0
