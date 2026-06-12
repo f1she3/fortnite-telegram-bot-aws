@@ -65,7 +65,7 @@ Pygments==2.20.0
 pyparsing==3.3.2
 python-1inch==0.0.2
 python-dateutil==2.9.0.post0
-python-telegram-bot==22.7
+python-telegram-bot==22.8
 pytz==2026.2
 pywin32==312
 pyzmq==27.1.0
