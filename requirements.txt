@@ -91,7 +91,7 @@ tornado==6.5.7
 traitlets==5.15.1
 typing_extensions==4.15.0
 urllib3==2.7.0
-virtualenv==21.4.3
+virtualenv==21.5.0
 virtualenv-clone==0.5.7
 wcwidth==0.8.1
 Werkzeug==3.1.8
