@@ -23,7 +23,7 @@ gast==0.7.0
 google-auth==2.55.1
 google-auth-oauthlib==1.4.0
 google-pasta==0.2.0
-grpcio==1.82.0
+grpcio==1.82.1
 h11==0.16.0
 h5py==3.16.0
 httpcore==1.0.9
